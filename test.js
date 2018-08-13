@@ -32,6 +32,15 @@ describe('keysOf()', function () {
     assert(isArrayWith(keysOf(new Map([['key', {value: true}]]), {value: true}, {loose: true}), 'key'))
   })
 
+  it('should transform existing values if `compareAs` is set', function () {
+    assert(isArrayWith(keysOf({key: 'value'}, 'val', {compareAs: x => x.substr(0, 3)}), 'key'))
+  })
+
+  it('should compare keys of existing values if `compareBy` is set', function () {
+    assert(isArrayWith(keysOf({key: ['value']}, 'value', {compareBy: 0}), 'key'))
+    assert(isArrayWith(keysOf({key: 'value'}, 'v', {compareBy: 0}), 'key'))
+  })
+
   it('should support the bind operator', function () {
     assert(isArrayWith(keysOf.call(new Map([['key', 'value']]), 'value'), 'key'))
   })

@@ -32,6 +32,8 @@
     "entries-iterator": "^1.5.0",
     "equals": "^1.0.5",
     "iterify": "^1.0.0",
+    "kget": "^1.0.0",
+    "pfn": "^1.0.0",
     "xfn": "^1.0.0"
   },
   "devDependencies": {

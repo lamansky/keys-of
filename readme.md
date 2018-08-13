@@ -24,6 +24,9 @@ The module exports a `keysOf()` function that has one other function attached to
 2. `valueToFind` (any): The value whose corresponding keys or indexes you want to locate.
 3. Optional: Object argument:
     * `arrays` / `maps` / `sets` (arrays of classes/strings): Arrays of classes and/or string names of classes that should be treated as equivalent to `Array`/`Map`/`Set` (respectively).
+    * `compareAs` (function): A callback that accepts a single existing value from the collection and transforms it before it is compared.
+    * `compareBy` (any): If set, each existing value in the collection is assumed to be a subcollection, and the value in each subcollection corresponding to the `compareBy` key will be compared to `valueToFind`. Only applies if `compareAs` is not set. If `compareBy` is an array, it is assumed to be a chain of nested keys.
+    * `compareByOptions` (object): An options argument for the [kget](https://github.com/lamansky/kget) module, which is used when `compareBy` is set.
     * `inObj` (boolean): Whether or not to search inherited properties if `c` is an Object (i.e. not another recognized type). Defaults to `false`.
     * `loose` (boolean): Whether or not to identify values loosely (as defined by `looselyEquals`). Defaults to `false`.
     * `looselyEquals` (function): A callback that accepts two values and returns `true` if they are to be considered equivalent or `false` otherwise. This argument is only used if `loose` is `true`. If omitted, the default behavior will, among other things, consider arrays/objects to be equal if they have the same entries.
